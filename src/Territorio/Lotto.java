@@ -13,6 +13,7 @@ public class Lotto {
 	private int posY;
 	private boolean citta;
 	private boolean presenzaGiocatore = false;
+        private String nomePlayer;
 
 	// Costruttore di Lotto
 	public Lotto(int posX, int posY, boolean citta) {
@@ -41,8 +42,9 @@ public class Lotto {
 	}
 
 	// Metodo che setta la presenza del Giocatore nel Lotto.
-	public void setPresenzaGiocatore(boolean cond){
+	public void setPresenzaGiocatore(boolean cond, String nome){
 			presenzaGiocatore = cond;
+                        nomePlayer = nome;
 	}
 	
 	// Metodo che stampa il contenuto del Lotto.
@@ -52,11 +54,11 @@ public class Lotto {
 		
 		if(!citta && !presenzaGiocatore){
 			//out = Integer.toString(posX) + ' ' + Integer.toString(posY);
-                        out = "   ";
+                       out = "   ";
 		}else if(citta){
 			out = " S ";
 		}else if(presenzaGiocatore){
-			out = "PiO";
+			out = nomePlayer;
 		}
 		return out;
 		

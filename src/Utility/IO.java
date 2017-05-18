@@ -16,7 +16,7 @@ public class IO
 	
 	private static final String ERRORE_3_LETTERE = "Attenzione, il nome deve essere di 3 lettere!";
 	private static final String ERRORE_UN_CARATTERE = "Attenzione, inserire solo un carattere!";
-	
+	private static final String SPAZIO = " ";
 	
 	// Creazione di uno scanner per l'input.
 	private static Scanner lettore = creaScanner();
@@ -100,6 +100,46 @@ public class IO
 		return carattere.charAt(0);
 	}
 	
+        /**
+	 * Metodo che stampa la posizione attorno alla griglia formattata.
+	 * @param pos
+	 * @return
+	 */
+	public static String stampaPosFormattata(int pos){
+		
+            String out;
+
+            if(pos>= 0 && pos <= 9){
+
+                out = (SPAZIO + SPAZIO + pos + SPAZIO + SPAZIO + SPAZIO);
+
+            }else if(pos > 9 && pos <= 99 ){
+
+                out = (SPAZIO + SPAZIO + pos + SPAZIO + SPAZIO);
+
+            }else if(pos > 99 && pos <= 999 ){
+
+                out = (SPAZIO + pos + SPAZIO + SPAZIO);
+
+            }else if(pos < 0 && pos >=-9){
+
+                out = (SPAZIO + SPAZIO + pos + SPAZIO + SPAZIO);
+
+            }else if(pos <-9 && pos >=-99){
+
+                out = (SPAZIO + pos + SPAZIO + SPAZIO);
+
+            }else if(pos <-99 && pos >=-999){
+
+                out = (SPAZIO + pos + SPAZIO);
+
+            }else 
+
+                out = SPAZIO + "Over" + SPAZIO;
+
+            return out;
+	}
+		
 	
 }
 

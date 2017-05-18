@@ -1,4 +1,5 @@
 package Territorio;
+import Utility.IO;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,7 @@ public class Territorio {
     //Stringhe varie
     private String aCapo = "\n";
     private String separatore = " | ";
+    private String TAB = "      ";
 
     // Dimensione territorio
     private int altezza;
@@ -88,22 +90,27 @@ public class Territorio {
     // Metodo che stampa la mappa
     public void stampaMappa(int xGiocatore, int yGiocatore){
         
-        int i=0;
-        int j=0;
+        int i = 0;
+        int j = 0;
+        int c = 0;
         int maxL;
         int maxY;
         
+        System.out.print(TAB);
+        for ( i = (xGiocatore - 5); i < (xGiocatore + 5); i++)
+            System.out.print(IO.stampaPosFormattata(i));
         
-        for ( i = minY; i < larghezza; i++){
+        for ( i = (yGiocatore - 5); i < (yGiocatore + 5); i++){
             System.out.println(aCapo);
-            for ( j = minX; j < altezza; j++){
+            for ( j = (xGiocatore - 5); j < (xGiocatore + 5); j++){
                 
-                //if(j == 0)
-                    //System.out.print(i + " ");
-                
+                if(c == 0)
+                    System.out.print(IO.stampaPosFormattata(i));
+                c++;
                 System.out.print(getLotto(j,i).toString() + separatore);
 
             }
+            c = 0;
         }
     }
 
@@ -120,16 +127,16 @@ public class Territorio {
     }
 
     // Metodo che aggiorna la mappa.
-    public void modificaMappa(int xGiocatore, int yGiocatore){
+    public void modificaMappa(int xGiocatore, int yGiocatore, String nome){
 
         aggiungiColonna(xGiocatore);
         aggiungiRiga(yGiocatore);
         
         for(Lotto lotto : territorio){
             if(lotto.getPosX() == xGiocatore && lotto.getPosY() == yGiocatore){
-                lotto.setPresenzaGiocatore(true);
+                lotto.setPresenzaGiocatore(true,nome);
             }else{
-                lotto.setPresenzaGiocatore(false);
+                lotto.setPresenzaGiocatore(false,null);
             }
         }
 
@@ -146,18 +153,19 @@ public class Territorio {
     private void aggiungiColonna(int xGiocatore){
         
         //DX
-        if(xGiocatore >= altezza){
+        if(xGiocatore >= (altezza - 5)){
+            System.out.println("Sono entrato nell'IF del DX");
             for(int i = minY; i < larghezza; i++){
-                 Lotto quadrato = new Lotto(xGiocatore, i, false);
+                 Lotto quadrato = new Lotto(xGiocatore + 5, i, false);
                  territorio.add(quadrato);
             }
             altezza++;
         }
         
         //SX
-        if(xGiocatore < minX){
+        if(xGiocatore < (minX + 5)){
             for(int i = minY; i < larghezza; i++){
-                 Lotto quadrato = new Lotto(xGiocatore, i, false);
+                 Lotto quadrato = new Lotto(xGiocatore - 5, i, false);
                  territorio.add(quadrato);
             }
             minX--;
@@ -168,18 +176,18 @@ public class Territorio {
      private void aggiungiRiga(int yGiocatore){
         
          //SUD
-        if(yGiocatore >= larghezza){
+        if(yGiocatore >= (larghezza - 5)){
             for(int i = minX; i < altezza; i++){
-                 Lotto quadrato = new Lotto(i, yGiocatore, false);
+                 Lotto quadrato = new Lotto(i, yGiocatore + 5, false);
                  territorio.add(quadrato);
             }
             larghezza++;
         }
         
         //NORD
-        if(yGiocatore < minY){
+        if(yGiocatore < (minY + 5)){
             for(int i = minX; i < altezza; i++){
-                 Lotto quadrato = new Lotto(i, yGiocatore, false);
+                 Lotto quadrato = new Lotto(i, yGiocatore - 5, false);
                  territorio.add(quadrato);
             }
             minY--;
