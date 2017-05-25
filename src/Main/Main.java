@@ -6,7 +6,7 @@ import Territorio.Lotto;
 import Territorio.Territorio;
 import Utility.*;
 
-
+//Main
 public class Main {
     
     private static char scelta;
