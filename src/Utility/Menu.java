@@ -1,5 +1,6 @@
 package Utility;
 
+//classe menu
 public class Menu {
 	
     private static String primaScelta = "Premi R per tornare in citta'";
