@@ -17,54 +17,97 @@ import Territorio.Territorio;
 
 public class Giocatore {
 
-	private int posX;
-	private int posY;
-	private String nome;
-	
-	//Costruttore di Giocatore
-	public Giocatore(int _posX,int _posY, String _nome){
-		
-		this.posX = _posX;
-		this.posY = _posY;
-		this.nome = _nome;
-	}
+    private int posX;
+    private int posY;
+    private String nome;
 
-	// Getter e Setter
-	public int getPosX() {
-		return posX;
-	}
+    private int healthPoint;
+    private int oro;
+    
+    //equipaggiamento
+    private boolean spada = false;
+    private boolean arco = false;
+    private boolean pugnale = false;
+    
+    //private boolean pozione = false;
 
-	public void setPosX(int posX) {
-		this.posX = posX;
-	}
 
-	public int getPosY() {
-		return posY;
-	}
+    //Costruttore di Giocatore
+    public Giocatore(int _posX,int _posY, String _nome){
 
-	public void setPosY(int posY) {
-		this.posY = posY;
-	}
+            this.posX = _posX;
+            this.posY = _posY;
+            this.nome = _nome;
+            this.healthPoint = 100;
+            this.oro = 0;
+    }
+
+    // Getter e Setter
+    public int getPosX() {
+            return posX;
+    }
+
+    public void setPosX(int posX) {
+            this.posX = posX;
+    }
+
+    public int getPosY() {
+            return posY;
+    }
+
+    public void setPosY(int posY) {
+            this.posY = posY;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+    public int getHealthPoint() {
+        return healthPoint;
+    }
+
+    public void setHealthPoint(int healthPoint) {
+        this.healthPoint = healthPoint;
+    }
+
+    public int getOro() {
+        return oro;
+    }
+
+    public void setOro(int oro) {
+        this.oro = oro;
+    }
+
+    public void setSpada(boolean spada) {
+        this.spada = spada;
+    }
+
+    public void setArco(boolean arco) {
+        this.arco = arco;
+    }
+
+    public void setPugnale(boolean pugnale) {
+        this.pugnale = pugnale;
+    }
         
-        public String getNome(){
-            return nome;
+        
+
+    public void settaPosizione(char c){
+
+        if(c == 'N')
+            posY--;
+        if(c == 'S')
+            posY++;
+        if(c == 'E')
+            posX++;
+        if(c == 'O')
+            posX--;
+        if(c == 'R'){
+            posX = Territorio.getxCitta();
+            posY = Territorio.getyCitta();
+
         }
 
-	public void settaPosizione(char c){
-		
-		if(c == 'N')
-                    posY--;
-		if(c == 'S')
-                    posY++;
-		if(c == 'E')
-                    posX++;
-		if(c == 'O')
-                    posX--;
-		if(c == 'R'){
-                    posX = Territorio.getxCitta();
-                    posY = Territorio.getyCitta();
-                    
-                }
-		
-	}
+    }
 }
