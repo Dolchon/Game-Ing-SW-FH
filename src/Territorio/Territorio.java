@@ -1,5 +1,6 @@
 package Territorio;
 import Utility.IO;
+import Utility.Utility;
 import java.util.ArrayList;
 
 /**
@@ -195,5 +196,43 @@ public class Territorio {
         }
     }
 	
-
+    private void creaLotto(int j, int i){
+        
+        int casuale = Utility.random(5);
+        Lotto quadrato = new Lotto(j, i, false);
+        
+        switch (casuale){
+            case 0:
+                
+                quadrato.setPieno(false);
+                territorio.add(quadrato);
+                break;
+            case 1:        
+                quadrato.setSpada(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 2:
+                quadrato.setArco(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 3:
+                quadrato.setPugnale(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 4:
+                quadrato.setPozione(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 5:
+                quadrato.setForzierePieno(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+        }
+      
+    }
 }

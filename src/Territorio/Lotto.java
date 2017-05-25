@@ -14,6 +14,16 @@ public class Lotto {
 	private boolean citta;
 	private boolean presenzaGiocatore = false;
         private String nomePlayer;
+        
+        //attributi contenuto lotto
+        private boolean spada = false;
+        private boolean arco = false;
+        private boolean pugnale = false;
+        private boolean forzierePieno = false;
+        private boolean forziereVuoto = false;
+        private boolean pozione = false;
+        private boolean pieno = false;
+        
 
 	// Costruttore di Lotto
 	public Lotto(int posX, int posY, boolean citta) {
@@ -63,5 +73,33 @@ public class Lotto {
 		return out;
 		
 	}
+
+    public void setSpada(boolean spada) {
+        this.spada = spada;
+    }
+
+    public void setArco(boolean arco) {
+        this.arco = arco;
+    }
+
+    public void setPugnale(boolean pugnale) {
+        this.pugnale = pugnale;
+    }
+
+    public void setForzierePieno(boolean forzierePieno) {
+        this.forzierePieno = forzierePieno;
+    }
+
+    public void setForziereVuoto(boolean forziereVuoto) {
+        this.forziereVuoto = forziereVuoto;
+    }
+
+    public void setPozione(boolean pozione) {
+        this.pozione = pozione;
+    }
+
+    public void setPieno(boolean pieno) {
+        this.pieno = pieno;
+    }
 	
 }
