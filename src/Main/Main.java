@@ -33,7 +33,11 @@ public class Main {
 		do{
                     prova.modificaMappa(player.getPosX(), player.getPosY(), player.getNome());
                     prova.stampaMappa(player.getPosX(), player.getPosY());
-                    Menu.menu();
+                    
+                    if(player.getPosY() == prova.getxCitta() && player.getPosX() == prova.getyCitta())
+                        Menu.menuCitta();
+                    else
+                        Menu.menu();
                     player.settaPosizione(scelta = IO.leggiCarattere());
                 }while(scelta != carattereDiUscita);
                 
