@@ -110,4 +110,13 @@ public class Giocatore {
         }
 
     }
+    
+    public void stampaStato(){
+        
+        String giocatore;
+        
+        giocatore = "\nGiocatore: "+ nome +"\nPunti Vita: "+ healthPoint+"\nOro: "+oro+"\n";
+        
+        System.out.println(giocatore);
+    }
 }

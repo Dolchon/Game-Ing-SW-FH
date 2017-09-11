@@ -72,9 +72,9 @@ public class Territorio {
                 //System.out.print(i +" "+ j+" | ");
                 if(i != xCitta || j != yCitta){
 
-                    Lotto quadrato = new Lotto(j, i, false);
-                    territorio.add(quadrato);
-
+                    //Lotto quadrato = new Lotto(j, i, false);
+                    //territorio.add(quadrato);
+                    creaLotto(j,i);
                 }else if(i == xCitta && j == yCitta){
 
                     Lotto quadrato = new Citta(j, i, true);

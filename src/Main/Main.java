@@ -34,10 +34,15 @@ public class Main {
                     prova.modificaMappa(player.getPosX(), player.getPosY(), player.getNome());
                     prova.stampaMappa(player.getPosX(), player.getPosY());
                     
-                    if(player.getPosY() == prova.getxCitta() && player.getPosX() == prova.getyCitta())
-                        Menu.menuCitta();
-                    else
+                    if(player.getPosY() == prova.getxCitta() && player.getPosX() == prova.getyCitta()){
+                        player.stampaStato();
+                        Menu.menuCitta(); 
+                    }else{
+                        Lotto lotto = prova.getLotto(player.getPosX(), player.getPosY());
+                        player.stampaStato();
+                        lotto.stampaContenuto();
                         Menu.menu();
+                    }
                     player.settaPosizione(scelta = IO.leggiCarattere());
                 }while(scelta != carattereDiUscita);
                 

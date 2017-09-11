@@ -102,4 +102,62 @@ public class Lotto {
         this.pieno = pieno;
     }
 	
+    //viene passato un intero e da questo con uno switch ne setto il contenuto del lotto
+    public void setContenuto(int contenuto){
+        
+        switch (contenuto){
+            case 0:
+                setPieno(false);
+                break;
+            case 1:
+                setSpada(true);
+                setPieno(true);
+                break;
+            case 2:
+                setPugnale(true);
+                setPieno(true);
+                break;
+            case 3:
+                setArco(true);
+                setPieno(true);
+                break;
+            case 4:
+                setArco(true);
+                setPieno(true);
+                break;
+            case 5:
+                setForzierePieno(true);
+                setPieno(true);
+                break; 
+            case 6:
+                setForzierePieno(true);
+                setPozione(true);
+                break; 
+        }
+    }
+    
+    public void svuotaLotto(){
+        setPieno(true);
+        setSpada(false);
+        setArco(false);
+        setPugnale(false);
+        setPozione(false);
+    }
+    
+    public void stampaContenuto(){
+        String contenuto = "";
+        
+        if (!pieno)
+            contenuto = "Il lotto è vuoto!";
+        else if (spada)
+            contenuto = "Il lotto continere una spada!";
+        else if (arco)
+            contenuto = "Il lotto contiene un arco";
+        else if (pugnale)
+            contenuto = "Il lotto conetine un pugnale";
+        
+            
+        
+        System.out.println(contenuto);
+    }
 }
