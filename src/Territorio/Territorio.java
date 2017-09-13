@@ -157,8 +157,9 @@ public class Territorio {
         if(xGiocatore >= (altezza - 5)){
             System.out.println("Sono entrato nell'IF del DX");
             for(int i = minY; i < larghezza; i++){
-                 Lotto quadrato = new Lotto(xGiocatore + 5, i, false);
-                 territorio.add(quadrato);
+                creaLotto(xGiocatore + 5,i);
+                // Lotto quadrato = new Lotto(xGiocatore + 5, i, false);
+                 //territorio.add(quadrato);
             }
             altezza++;
         }
@@ -166,8 +167,9 @@ public class Territorio {
         //SX
         if(xGiocatore < (minX + 5)){
             for(int i = minY; i < larghezza; i++){
-                 Lotto quadrato = new Lotto(xGiocatore - 5, i, false);
-                 territorio.add(quadrato);
+                creaLotto(xGiocatore - 5,i);
+                 //Lotto quadrato = new Lotto(xGiocatore - 5, i, false);
+                // territorio.add(quadrato);
             }
             minX--;
             
@@ -179,8 +181,9 @@ public class Territorio {
          //SUD
         if(yGiocatore >= (larghezza - 5)){
             for(int i = minX; i < altezza; i++){
-                 Lotto quadrato = new Lotto(i, yGiocatore + 5, false);
-                 territorio.add(quadrato);
+                creaLotto(i, yGiocatore + 5);
+                // Lotto quadrato = new Lotto(i, yGiocatore + 5, false);
+                // territorio.add(quadrato);
             }
             larghezza++;
         }
@@ -188,8 +191,9 @@ public class Territorio {
         //NORD
         if(yGiocatore < (minY + 5)){
             for(int i = minX; i < altezza; i++){
-                 Lotto quadrato = new Lotto(i, yGiocatore - 5, false);
-                 territorio.add(quadrato);
+                creaLotto(i, yGiocatore - 5);
+                 //Lotto quadrato = new Lotto(i, yGiocatore - 5, false);
+                 //territorio.add(quadrato);
             }
             minY--;
             

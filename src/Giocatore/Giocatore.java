@@ -28,6 +28,7 @@ public class Giocatore {
     private boolean spada = false;
     private boolean arco = false;
     private boolean pugnale = false;
+    private boolean equipaggiato = false;
     
     //private boolean pozione = false;
 
@@ -41,8 +42,19 @@ public class Giocatore {
             this.healthPoint = 100;
             this.oro = 0;
     }
-
+    
     // Getter e Setter
+
+    public boolean isEquipaggiato() {
+        return equipaggiato;
+    }
+
+    public void setEquipaggiato(boolean equipaggiato) {
+        this.equipaggiato = equipaggiato;
+    }
+    
+    
+    
     public int getPosX() {
             return posX;
     }

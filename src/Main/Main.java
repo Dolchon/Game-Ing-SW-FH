@@ -13,7 +13,9 @@ public class Main {
     private static String messaggioDiUscita = "Grazie per aver giocato";
     private static char carattereDiUscita = 'Q';
     private static String messaggioDiBenvenuto = "Benvenuto Forestiero!\nQual e' il tuo nome?\nInserisci 3 caratteri\n";
+    private static String raccoltaArma = "\nVuoi raccoglierel'arma? S/N \n";
     
+    private static char opzione;
     private static String nome;
 	public static void main(String[] args) {
 		
@@ -41,6 +43,19 @@ public class Main {
                         Lotto lotto = prova.getLotto(player.getPosX(), player.getPosY());
                         player.stampaStato();
                         lotto.stampaContenuto();
+                        
+                        if(!player.isEquipaggiato() && lotto.contieneArma()){
+                            do{
+                                System.out.println(raccoltaArma);
+                                opzione = IO.leggiCarattere();
+                            }while(opzione != 'S' && opzione != 'N');
+                            if(opzione == 'S'){
+                                player.setEquipaggiato(true);
+                                lotto.svuotaLotto();
+                            }
+                        }
+                        
+                        
                         Menu.menu();
                     }
                     player.settaPosizione(scelta = IO.leggiCarattere());
