@@ -13,7 +13,10 @@ public class Main {
     private static String messaggioDiUscita = "Grazie per aver giocato";
     private static char carattereDiUscita = 'Q';
     private static String messaggioDiBenvenuto = "Benvenuto Forestiero!\nQual e' il tuo nome?\nInserisci 3 caratteri\n";
-    private static String raccoltaArma = "\nVuoi raccoglierel'arma? S/N \n";
+    private static String raccoltaArma = "\nVuoi raccoglierel'arma? S/N ";
+    private static String lasciaArma = "\nHai trovato uno spazio per depositare la tua arma! Vuoi lasciarla? S/N ";
+    private static String pozione = "\nHai Trovato una pozione! Vuoi Berla? (+10HP) S/N ";
+    
     
     private static char opzione;
     private static String nome;
@@ -44,18 +47,44 @@ public class Main {
                         player.stampaStato();
                         lotto.stampaContenuto();
                         
+                        //if se player è senza equipaggiamento e trova un'arma
                         if(!player.isEquipaggiato() && lotto.contieneArma()){
                             do{
                                 System.out.println(raccoltaArma);
                                 opzione = IO.leggiCarattere();
                             }while(opzione != 'S' && opzione != 'N');
+                            
                             if(opzione == 'S'){
-                                player.setEquipaggiato(true);
+                                //player.setEquipaggiato(true);
+                                player.setEquipaggiamento(lotto.getArma());
                                 lotto.svuotaLotto();
                             }
                         }
                         
+                        //se giocatore è equipaggiato e trova arma chiede se la si vuole lasciare a terra
+                        if(player.isEquipaggiato() && !lotto.isPieno()){
+                            do{
+                                System.out.println(lasciaArma);
+                                opzione = IO.leggiCarattere();
+                            }while(opzione != 'S' && opzione != 'N');
+                            
+                            if(opzione == 'S'){
+                                lotto.setContenuto(player.getArma());
+                                player.togliEquip();
+                            }
+                        }
                         
+                        if(lotto.getPozione()){
+                            do{
+                                System.out.println(pozione);
+                                opzione = IO.leggiCarattere();
+                            }while(opzione != 'S' && opzione != 'N');
+                            
+                            if(opzione == 'S'){
+                                player.setHealthPoint(10);
+                            }
+                        }
+
                         Menu.menu();
                     }
                     player.settaPosizione(scelta = IO.leggiCarattere());

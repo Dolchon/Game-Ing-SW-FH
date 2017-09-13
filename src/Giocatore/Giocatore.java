@@ -53,7 +53,29 @@ public class Giocatore {
         this.equipaggiato = equipaggiato;
     }
     
+    //metodo che setta equipaggiamento giocatore seguendo una codifica
+    public void setEquipaggiamento(int equip){
+        setEquipaggiato(true);
+        switch (equip){
+            case 1:
+                setSpada(true);
+                break;
+            case 2:
+                setArco(true);
+                break;
+            case 3:
+                setPugnale(true);
+                break;
+        }
+    }
     
+    //metodo che svuota l'equipaggiamento del giocatore
+    public void togliEquip(){
+        setSpada(false);
+        setArco(false);
+        setPugnale(false);
+        setEquipaggiato(false);
+    }
     
     public int getPosX() {
             return posX;
@@ -80,7 +102,7 @@ public class Giocatore {
     }
 
     public void setHealthPoint(int healthPoint) {
-        this.healthPoint = healthPoint;
+        this.healthPoint += healthPoint;
     }
 
     public int getOro() {
@@ -130,5 +152,16 @@ public class Giocatore {
         giocatore = "\nGiocatore: "+ nome +"\nPunti Vita: "+ healthPoint+"\nOro: "+oro+"\n";
         
         System.out.println(giocatore);
+    }
+    
+    public int getArma(){
+        if (spada)
+            return 1;
+        else if (arco)
+            return 2;
+        else if(pugnale)
+            return 3;
+        else
+            return 0;
     }
 }

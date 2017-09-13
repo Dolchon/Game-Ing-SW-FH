@@ -97,9 +97,17 @@ public class Lotto {
     public void setPozione(boolean pozione) {
         this.pozione = pozione;
     }
+    
+    public boolean getPozione(){
+        return pozione;
+    }
 
     public void setPieno(boolean pieno) {
         this.pieno = pieno;
+    }
+    
+    public boolean isPieno(){
+        return pieno;
     }
 	
     //viene passato un intero e da questo con uno switch ne setto il contenuto del lotto
@@ -114,11 +122,11 @@ public class Lotto {
                 setPieno(true);
                 break;
             case 2:
-                setPugnale(true);
+                setArco(true);
                 setPieno(true);
                 break;
             case 3:
-                setArco(true);
+                setPugnale(true);
                 setPieno(true);
                 break;
             case 4:
@@ -170,5 +178,16 @@ public class Lotto {
             contenuto = "Il lotto conetine un forzierevuoto!";
         
         System.out.println(contenuto);
+    }
+    
+    public int getArma(){
+        if (spada)
+            return 1;
+        else if (arco)
+            return 2;
+        else if(pugnale)
+            return 3;
+        else
+            return 0;
     }
 }
