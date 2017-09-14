@@ -6,6 +6,7 @@
 package Giocatore;
 
 import Territorio.Territorio;
+import static Utility.Utility.random50percento;
 
 /**
  * 
@@ -23,6 +24,7 @@ public class Giocatore {
 
     private int healthPoint;
     private int oro;
+    private int xp;
     
     //equipaggiamento
     private boolean spada = false;
@@ -47,6 +49,7 @@ public class Giocatore {
             this.nome = _nome;
             this.healthPoint = 100;
             this.oro = 0;
+            this.xp = 0;
     }
     
     // Getter e Setter
@@ -193,5 +196,22 @@ public class Giocatore {
                 healthPoint -= 10;
                 break;
         }
+    }
+    
+    public void combatti(){
+        
+        if(!isEquipaggiato())
+            healthPoint -= 40;
+        else if(spada)
+            healthPoint -= 10;
+        else if(pugnale)
+            healthPoint -= 20;
+        else if(arco)
+            healthPoint -= 15;
+        xp +=1;
+    }
+    
+    public int scappa(){
+        return random50percento();
     }
 }

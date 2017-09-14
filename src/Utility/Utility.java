@@ -5,6 +5,8 @@ import java.util.*;
 
 public class Utility {
 	
+    private final static Random random = new Random();
+    
     public static void clearScreen() {  
             try {
                     Runtime.getRuntime().exec("clear");
@@ -16,4 +18,14 @@ public class Utility {
         Random random = new Random();
         return random.nextInt(range);
     }
+    
+    //ritorna o 1 o 2
+    public static int random50percento(){
+        if (random.nextBoolean()) {
+            return 1;
+        } else {
+             return 2;
+        }
+    }
+    
 }

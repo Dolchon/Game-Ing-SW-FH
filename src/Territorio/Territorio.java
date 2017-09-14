@@ -202,11 +202,11 @@ public class Territorio {
 	
     private void creaLotto(int j, int i){
         
-        int casuale = Utility.random(6);
+        int casuale = Utility.random(7);
         Lotto quadrato = new Lotto(j, i, false);
         
-        if(casuale == 6)
-            casuale = 5;
+        if(casuale == 7)
+            casuale = 6;
         
         switch (casuale){
             case 0:
@@ -236,6 +236,11 @@ public class Territorio {
                 break;
             case 5:
                 quadrato.setForzierePieno(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 6:
+                quadrato.setOrco(true);
                 quadrato.setPieno(true);
                 territorio.add(quadrato);
                 break;

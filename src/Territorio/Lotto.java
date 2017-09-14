@@ -26,6 +26,7 @@ public class Lotto {
         private boolean forziereVuoto = false;
         private boolean pozione = false;
         private boolean pieno = false;
+        private boolean orco = false;
         
 
 	// Costruttore di Lotto
@@ -77,6 +78,16 @@ public class Lotto {
 		
 	}
 
+    public boolean isOrco() {
+        return orco;
+    }
+
+    public void setOrco(boolean orco) {
+        this.orco = orco;
+    }
+
+        
+        
     public void setSpada(boolean spada) {
         this.spada = spada;
     }
@@ -146,8 +157,12 @@ public class Lotto {
                 break; 
             case 6:
                 setForzierePieno(true);
-                setPozione(true);
+                setPieno(true);
                 break; 
+            case 7:
+                setOrco(true);
+                setPieno(true);
+                break;
         }
     }
     
@@ -157,6 +172,7 @@ public class Lotto {
         setArco(false);
         setPugnale(false);
         setPozione(false);
+        setOrco(false);
     }
     
     public boolean contieneArma(){
@@ -183,6 +199,8 @@ public class Lotto {
             contenuto = "Il lotto conetine un forziere!";  
         else if (forziereVuoto)
             contenuto = "Il lotto conetine un forzierevuoto!";
+        else if (orco)
+            contenuto = "Attenzione! Un'Orco!";
         
         System.out.println(contenuto);
     }

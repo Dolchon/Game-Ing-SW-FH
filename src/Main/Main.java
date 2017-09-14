@@ -17,6 +17,9 @@ public class Main {
     private static String lasciaArma = "\nHai trovato uno spazio per depositare la tua arma! Vuoi lasciarla? S/N ";
     private static String pozione = "\nHai Trovato una pozione! Vuoi Berla? (+10HP) S/N ";
     private static String forziere = "\nIl lotto contiene un forziere, vuoi aprirlo? S/N";
+    private static String orco = "\nVuoi combattere l'orco? S/N";
+    private static String fugaFallita = "\nSpiacente non sei riuscito a scappare!";
+    private static String fugaRiuscita = "\nSei riuscito a scappare!";
     
     
     private static char opzione;
@@ -95,13 +98,33 @@ public class Main {
                             
                             if(opzione == 'S'){
                                 player.getForziere(lotto.randomForziere());
+                                lotto.setForzierePieno(false);
+                                lotto.setForziereVuoto(true);
                             }
                         }
-
+                        
+                        if(lotto.isOrco()){
+                            do{
+                                System.out.println(orco);
+                                opzione = IO.leggiCarattere();
+                            }while(opzione != 'S' && opzione != 'N');
+                            
+                            if(opzione == 'S'){
+                                player.combatti();
+                                lotto.svuotaLotto();
+                            }else{
+                                if(player.scappa() == 2){                            
+                                    System.out.println(fugaFallita);
+                                    player.combatti();
+                                    lotto.svuotaLotto();
+                                }else
+                                    System.out.println(fugaRiuscita);
+                            }
+                        }
                         Menu.menu();
                     }
                     player.settaPosizione(scelta = IO.leggiCarattere());
-                }while(scelta != carattereDiUscita);
+                }while(scelta != carattereDiUscita && player.getHealthPoint() > 0);
                 
                 System.out.println(messaggioDiUscita);
                 //fine
