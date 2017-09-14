@@ -1,4 +1,7 @@
 package Territorio;
+
+import Utility.Utility;
+
 /**
  * 
  * @author Christian Fonga, Daniel Hanine
@@ -88,6 +91,10 @@ public class Lotto {
 
     public void setForzierePieno(boolean forzierePieno) {
         this.forzierePieno = forzierePieno;
+    }
+    
+    public boolean getForzierePieno(){
+        return forzierePieno;
     }
 
     public void setForziereVuoto(boolean forziereVuoto) {
@@ -189,5 +196,13 @@ public class Lotto {
             return 3;
         else
             return 0;
+    }
+    
+    public int randomForziere(){
+        
+        int casuale = Utility.random(5);
+        if (casuale == 5)
+            casuale = 4;
+        return casuale;
     }
 }

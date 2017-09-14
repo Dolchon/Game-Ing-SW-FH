@@ -32,6 +32,12 @@ public class Giocatore {
     
     //private boolean pozione = false;
 
+    //Stringhe per forziere
+    private static String vuoto = "Il forziere trovato e' vuoto|";
+    private static String oro10 = "Il forziere trovato contiene 10 monete";
+    private static String oro20 = "Il forziere trovato contiene 20 monete";
+    private static String oro30 = "Il forziere trovato contiene 30 monete";
+    private static String veleno = "Il forziere trovato contiene veleno (-10HP)";
 
     //Costruttore di Giocatore
     public Giocatore(int _posX,int _posY, String _nome){
@@ -163,5 +169,29 @@ public class Giocatore {
             return 3;
         else
             return 0;
+    }
+    
+    public void getForziere(int opzione){
+        switch (opzione){
+            case 0:
+                System.out.println(vuoto);
+                break;
+            case 1:
+                System.out.println(oro10);
+                oro += 10;
+                break;
+            case 2:
+                System.out.println(oro20);
+               oro += 20;
+               break;
+            case 3:
+                System.out.println(oro30);
+                oro +=30;
+                break;
+            case 4:
+                System.out.println(veleno);
+                healthPoint -= 10;
+                break;
+        }
     }
 }

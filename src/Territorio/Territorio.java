@@ -202,8 +202,11 @@ public class Territorio {
 	
     private void creaLotto(int j, int i){
         
-        int casuale = Utility.random(5);
+        int casuale = Utility.random(6);
         Lotto quadrato = new Lotto(j, i, false);
+        
+        if(casuale == 6)
+            casuale = 5;
         
         switch (casuale){
             case 0:

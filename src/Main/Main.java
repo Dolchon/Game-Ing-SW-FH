@@ -16,6 +16,7 @@ public class Main {
     private static String raccoltaArma = "\nVuoi raccoglierel'arma? S/N ";
     private static String lasciaArma = "\nHai trovato uno spazio per depositare la tua arma! Vuoi lasciarla? S/N ";
     private static String pozione = "\nHai Trovato una pozione! Vuoi Berla? (+10HP) S/N ";
+    private static String forziere = "\nIl lotto contiene un forziere, vuoi aprirlo? S/N";
     
     
     private static char opzione;
@@ -82,6 +83,18 @@ public class Main {
                             
                             if(opzione == 'S'){
                                 player.setHealthPoint(10);
+                                lotto.svuotaLotto();
+                            }
+                        }
+                        
+                        if(lotto.getForzierePieno()){
+                            do{
+                                System.out.println(forziere);
+                                opzione = IO.leggiCarattere();
+                            }while(opzione != 'S' && opzione != 'N');
+                            
+                            if(opzione == 'S'){
+                                player.getForziere(lotto.randomForziere());
                             }
                         }
 
