@@ -22,15 +22,15 @@ public class Giocatore {
     private int posY;
     private String nome;
 
-    private int healthPoint;
-    private int oro;
-    private int xp;
+    int healthPoint;
+    int oro;
+    int xp;
     
     //equipaggiamento
-    private boolean spada = false;
-    private boolean arco = false;
-    private boolean pugnale = false;
-    private boolean equipaggiato = false;
+    boolean spada = false;
+    boolean arco = false;
+    boolean pugnale = false;
+    boolean equipaggiato = false;
     
     //private boolean pozione = false;
 
