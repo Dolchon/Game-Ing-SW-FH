@@ -55,4 +55,4 @@ public class Paladino extends Giocatore {
      public void controllaVelocita(){
          velocita -= oro/100;
      }
-}//fine
+}//fine paladino
