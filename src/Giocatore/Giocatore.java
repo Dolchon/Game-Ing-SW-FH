@@ -15,7 +15,7 @@ import static Utility.Utility.random50percento;
  * 
  * Classe che rappresenta un Giocatore
  */
-
+//inizio
 public class Giocatore {
 
     private int posX;
