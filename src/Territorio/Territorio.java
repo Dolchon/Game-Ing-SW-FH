@@ -1,5 +1,6 @@
 package Territorio;
 import Utility.IO;
+import Utility.Utility;
 import java.util.ArrayList;
 
 /**
@@ -71,9 +72,9 @@ public class Territorio {
                 //System.out.print(i +" "+ j+" | ");
                 if(i != xCitta || j != yCitta){
 
-                    Lotto quadrato = new Lotto(j, i, false);
-                    territorio.add(quadrato);
-
+                    //Lotto quadrato = new Lotto(j, i, false);
+                    //territorio.add(quadrato);
+                    creaLotto(j,i);
                 }else if(i == xCitta && j == yCitta){
 
                     Lotto quadrato = new Citta(j, i, true);
@@ -156,8 +157,9 @@ public class Territorio {
         if(xGiocatore >= (altezza - 5)){
             System.out.println("Sono entrato nell'IF del DX");
             for(int i = minY; i < larghezza; i++){
-                 Lotto quadrato = new Lotto(xGiocatore + 5, i, false);
-                 territorio.add(quadrato);
+                creaLotto(xGiocatore + 5,i);
+                // Lotto quadrato = new Lotto(xGiocatore + 5, i, false);
+                 //territorio.add(quadrato);
             }
             altezza++;
         }
@@ -165,8 +167,9 @@ public class Territorio {
         //SX
         if(xGiocatore < (minX + 5)){
             for(int i = minY; i < larghezza; i++){
-                 Lotto quadrato = new Lotto(xGiocatore - 5, i, false);
-                 territorio.add(quadrato);
+                creaLotto(xGiocatore - 5,i);
+                 //Lotto quadrato = new Lotto(xGiocatore - 5, i, false);
+                // territorio.add(quadrato);
             }
             minX--;
             
@@ -178,8 +181,9 @@ public class Territorio {
          //SUD
         if(yGiocatore >= (larghezza - 5)){
             for(int i = minX; i < altezza; i++){
-                 Lotto quadrato = new Lotto(i, yGiocatore + 5, false);
-                 territorio.add(quadrato);
+                creaLotto(i, yGiocatore + 5);
+                // Lotto quadrato = new Lotto(i, yGiocatore + 5, false);
+                // territorio.add(quadrato);
             }
             larghezza++;
         }
@@ -187,13 +191,60 @@ public class Territorio {
         //NORD
         if(yGiocatore < (minY + 5)){
             for(int i = minX; i < altezza; i++){
-                 Lotto quadrato = new Lotto(i, yGiocatore - 5, false);
-                 territorio.add(quadrato);
+                creaLotto(i, yGiocatore - 5);
+                 //Lotto quadrato = new Lotto(i, yGiocatore - 5, false);
+                 //territorio.add(quadrato);
             }
             minY--;
             
         }
     }
 	
-
+    private void creaLotto(int j, int i){
+        
+        int casuale = Utility.random(7);
+        Lotto quadrato = new Lotto(j, i, false);
+        
+        if(casuale == 7)
+            casuale = 6;
+        
+        switch (casuale){
+            case 0:
+                
+                quadrato.setPieno(false);
+                territorio.add(quadrato);
+                break;
+            case 1:        
+                quadrato.setSpada(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 2:
+                quadrato.setArco(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 3:
+                quadrato.setPugnale(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 4:
+                quadrato.setPozione(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 5:
+                quadrato.setForzierePieno(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+            case 6:
+                quadrato.setOrco(true);
+                quadrato.setPieno(true);
+                territorio.add(quadrato);
+                break;
+        }
+      
+    }
 }

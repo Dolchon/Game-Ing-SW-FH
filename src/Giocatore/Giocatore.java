@@ -6,6 +6,7 @@
 package Giocatore;
 
 import Territorio.Territorio;
+import static Utility.Utility.random50percento;
 
 /**
  * 
@@ -23,14 +24,22 @@ public class Giocatore {
 
     private int healthPoint;
     private int oro;
+    private int xp;
     
     //equipaggiamento
     private boolean spada = false;
     private boolean arco = false;
     private boolean pugnale = false;
+    private boolean equipaggiato = false;
     
     //private boolean pozione = false;
 
+    //Stringhe per forziere
+    private static String vuoto = "Il forziere trovato e' vuoto|";
+    private static String oro10 = "Il forziere trovato contiene 10 monete";
+    private static String oro20 = "Il forziere trovato contiene 20 monete";
+    private static String oro30 = "Il forziere trovato contiene 30 monete";
+    private static String veleno = "Il forziere trovato contiene veleno (-10HP)";
 
     //Costruttore di Giocatore
     public Giocatore(int _posX,int _posY, String _nome){
@@ -40,9 +49,43 @@ public class Giocatore {
             this.nome = _nome;
             this.healthPoint = 100;
             this.oro = 0;
+            this.xp = 0;
+    }
+    
+    // Getter e Setter
+
+    public boolean isEquipaggiato() {
+        return equipaggiato;
     }
 
-    // Getter e Setter
+    public void setEquipaggiato(boolean equipaggiato) {
+        this.equipaggiato = equipaggiato;
+    }
+    
+    //metodo che setta equipaggiamento giocatore seguendo una codifica
+    public void setEquipaggiamento(int equip){
+        setEquipaggiato(true);
+        switch (equip){
+            case 1:
+                setSpada(true);
+                break;
+            case 2:
+                setArco(true);
+                break;
+            case 3:
+                setPugnale(true);
+                break;
+        }
+    }
+    
+    //metodo che svuota l'equipaggiamento del giocatore
+    public void togliEquip(){
+        setSpada(false);
+        setArco(false);
+        setPugnale(false);
+        setEquipaggiato(false);
+    }
+    
     public int getPosX() {
             return posX;
     }
@@ -68,7 +111,7 @@ public class Giocatore {
     }
 
     public void setHealthPoint(int healthPoint) {
-        this.healthPoint = healthPoint;
+        this.healthPoint += healthPoint;
     }
 
     public int getOro() {
@@ -109,5 +152,66 @@ public class Giocatore {
 
         }
 
+    }
+    
+    public void stampaStato(){
+        
+        String giocatore;
+        
+        giocatore = "\nGiocatore: "+ nome +"\nPunti Vita: "+ healthPoint+"\nOro: "+oro+"\n";
+        
+        System.out.println(giocatore);
+    }
+    
+    public int getArma(){
+        if (spada)
+            return 1;
+        else if (arco)
+            return 2;
+        else if(pugnale)
+            return 3;
+        else
+            return 0;
+    }
+    
+    public void getForziere(int opzione){
+        switch (opzione){
+            case 0:
+                System.out.println(vuoto);
+                break;
+            case 1:
+                System.out.println(oro10);
+                oro += 10;
+                break;
+            case 2:
+                System.out.println(oro20);
+               oro += 20;
+               break;
+            case 3:
+                System.out.println(oro30);
+                oro +=30;
+                break;
+            case 4:
+                System.out.println(veleno);
+                healthPoint -= 10;
+                break;
+        }
+    }
+    
+    public void combatti(){
+        
+        if(!isEquipaggiato())
+            healthPoint -= 40;
+        else if(spada)
+            healthPoint -= 10;
+        else if(pugnale)
+            healthPoint -= 20;
+        else if(arco)
+            healthPoint -= 15;
+        xp +=1;
+    }
+    
+    public int scappa(){
+        return random50percento();
     }
 }
