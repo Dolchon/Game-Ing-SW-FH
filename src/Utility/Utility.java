@@ -28,4 +28,20 @@ public class Utility {
         }
     }
     
+    public static int randomXpercento(int base, float velocita){
+        
+        int[] array = new int[100];
+        int percentuale = (int) (base * velocita);
+        
+        for (int i=0; i<100; i++){
+            if(i<percentuale)
+                array[i] = 1;
+            else
+                array[i] = 0;
+        }
+        
+        return array[random(99)];
+        
+    }
+    
 }

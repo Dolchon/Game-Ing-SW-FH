@@ -6,6 +6,7 @@
 package Giocatore;
 
 import static Utility.Utility.random50percento;
+import static Utility.Utility.randomXpercento;
 
 /**
  *
@@ -40,9 +41,9 @@ public class Barbaro extends Giocatore {
         xp +=1;
     }
     
-     public int scappa(){
+    public int scappa(){
         velocita = velocita - (oro/100);
-        return random50percento();
+        return randomXpercento(25,velocita);
     }
      
      public void levelUp(){
