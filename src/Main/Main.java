@@ -1,6 +1,8 @@
 package Main;
 
+import Giocatore.Barbaro;
 import Giocatore.Giocatore;
+import Giocatore.Ladro;
 import Giocatore.Paladino;
 
 import Territorio.Lotto;
@@ -31,10 +33,10 @@ public class Main {
 		Lotto prova = new Lotto(10,2,true);
 		System.out.println(prova.toString());
 		*/
-		nome = IO.leggiParola3(messaggioDiBenvenuto);
-                
+		
 		Territorio prova = new Territorio();
-		Giocatore player = new Paladino(5,5,nome);
+                
+		Giocatore player = inizializzaGiocatore();
 		
 		prova.creaMappa();
 		//prova.stampaMappa();
@@ -85,6 +87,35 @@ public class Main {
                 //fine
 	}
         
+        
+        private static Giocatore inizializzaGiocatore(){
+            nome = IO.leggiParola3(messaggioDiBenvenuto);
+            Menu.sceltaClasse(nome);
+            char op;
+            do{
+                System.out.println("Scegli");
+                op = IO.leggiCarattere();
+            }while(op != 'P' && op != 'L' && op != 'B');
+            
+            Giocatore player;
+            switch (op){
+                case 'P':
+                    System.out.println("ciao sono qua");
+                    player = new Paladino(5,5,nome);
+                    return player;
+                    
+                case 'L':
+                    player = new Ladro(5,5,nome);
+                    return player;
+                    
+                case 'B':
+                    player = new Barbaro(5,5,nome);
+                    return player;
+                   
+            }
+            return player = new Giocatore(5,5,nome);
+        }
+                
         private static void nonEquipaggiatoTrovaArma(Lotto lotto, Giocatore player){
             if(!player.isEquipaggiato() && lotto.contieneArma()){
                 do{

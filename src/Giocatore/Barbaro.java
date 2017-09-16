@@ -11,15 +11,15 @@ import static Utility.Utility.random50percento;
  *
  * @author Hertz
  */
-public class Paladino extends Giocatore {
+public class Barbaro extends Giocatore {
     
     private float forza;
     private float velocita;
     private int livello;
     
-    public Paladino(int _posX, int _posY, String _nome) {
+    public Barbaro(int _posX, int _posY, String _nome) {
         super(_posX, _posY, _nome);
-        this.forza = 1;
+        this.forza = (float) 2;
         this.velocita = (float) 0.5;
         this.livello = 1;
     }
