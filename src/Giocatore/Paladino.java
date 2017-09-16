@@ -43,11 +43,11 @@ public class Paladino extends Giocatore {
     
      public int scappa(){
         velocita = velocita - (oro/100);
-        return randomXpercento(25,velocita);
+        return randomXpercento(percentualebase,velocita);
     }
      
      public void levelUp(){
-         System.out.println("ciao");
+         //System.out.println("ciao");
          if (xp %10 == 0){
              System.out.println("\n\tLevel UP\n");
              xp = 0;

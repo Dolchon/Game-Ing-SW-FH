@@ -47,7 +47,7 @@ public class Barbaro extends Giocatore {
     }
      
      public void levelUp(){
-         System.out.println("ciao");
+         //System.out.println("ciao");
          if (xp %10 == 0){
              System.out.println("\n\tLevel UP\n");
              xp = 0;

@@ -23,6 +23,7 @@ public class Main {
     private static String orco = "\nVuoi combattere l'orco? S/N";
     private static String fugaFallita = "\nSpiacente non sei riuscito a scappare!";
     private static String fugaRiuscita = "\nSei riuscito a scappare!";
+    private static String percentuale = "Aspetta!\nDimmi che percentuale di fuga vuoi utilizzare!";
     
     
     private static char opzione;
@@ -38,6 +39,8 @@ public class Main {
                 
 		Giocatore player = inizializzaGiocatore();
 		
+                setPercentuale(player);
+                
 		prova.creaMappa();
 		//prova.stampaMappa();
 		
@@ -200,5 +203,14 @@ public class Main {
         private static void aggiornaStatsGiocatore(Giocatore player){
             player.levelUp();
             //player.controllaVelocita();
+        }
+        
+        private static void setPercentuale(Giocatore player){
+            System.out.println(percentuale);
+            int percentualeInt;
+            do{
+                percentualeInt = IO.leggiNumero();
+            }while(percentualeInt <0 && percentualeInt >100);
+            player.setPercentualebase(percentualeInt);
         }
 }

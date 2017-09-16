@@ -11,9 +11,9 @@ public class Menu {
     private static String quintaScelta = "Premi E per spostarti a Est";
     private static String sestaScelta = "Premi Q per uscire dal gioco";
     
-    private static String paladino = "1) Paladino! (la classe equilibrata)";
-    private static String ladro = "2) Ladro! (preparati a scappare)";
-    private static String barbaro = "3) Barbaro! (affronta senza paura)";
+    private static String paladino = "P) Paladino! (la classe equilibrata)";
+    private static String ladro = "L) Ladro! (preparati a scappare)";
+    private static String barbaro = "B) Barbaro! (affronta senza paura)";
     private static String classe = "Benvenuto ";
     private static String classe2 = " scegli una classe!";
     

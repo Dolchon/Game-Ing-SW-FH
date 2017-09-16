@@ -25,7 +25,8 @@ public class Giocatore {
     int healthPoint;
     int oro;
     int xp;
-    
+    int percentualebase;
+
     //equipaggiamento
     boolean spada = false;
     boolean arco = false;
@@ -93,7 +94,16 @@ public class Giocatore {
     public void setPosX(int posX) {
             this.posX = posX;
     }
+    
+    
+    public int getPercentualebase() {
+        return percentualebase;
+    }
 
+    public void setPercentualebase(int percentualebase) {
+        this.percentualebase = percentualebase;
+    }
+    
     public int getPosY() {
             return posY;
     }

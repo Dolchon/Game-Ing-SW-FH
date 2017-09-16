@@ -103,11 +103,7 @@ public class IO
         public static int leggiNumero(){
 		
 		String carattere = leggiParola().toUpperCase();
-		while(carattere.length() != 1){
-			System.out.println(ERRORE_UN_CARATTERE);
-			carattere = leggiParola().toUpperCase();
-	
-		}
+		
                 int n = Integer.parseInt(carattere);
 		return n;
 	}
