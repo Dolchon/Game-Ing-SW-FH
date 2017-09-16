@@ -20,7 +20,7 @@ public class Giocatore {
 
     private int posX;
     private int posY;
-    private String nome;
+    String nome;
 
     int healthPoint;
     int oro;
@@ -49,7 +49,7 @@ public class Giocatore {
             this.nome = _nome;
             this.healthPoint = 100;
             this.oro = 0;
-            this.xp = 0;
+            this.xp = 1;
     }
     
     // Getter e Setter
@@ -213,5 +213,13 @@ public class Giocatore {
     
     public int scappa(){
         return random50percento();
+    }
+
+    public void levelUp() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void controllaVelocita() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

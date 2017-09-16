@@ -41,18 +41,28 @@ public class Paladino extends Giocatore {
     }
     
      public int scappa(){
+        velocita = velocita - (oro/100);
         return random50percento();
     }
      
      public void levelUp(){
+         System.out.println("ciao");
          if (xp %10 == 0){
+             System.out.println("\n\tLevel UP\n");
              xp = 0;
              velocita += 0.2;
              forza += 0.2;
+             livello += 1;
          }
      }
      
-     public void controllaVelocita(){
-         velocita -= oro/100;
-     }
+     public void stampaStato(){
+        
+        String giocatore;
+        
+        giocatore = "\nGiocatore: "+ nome +"\tPunti Vita: "+ healthPoint+"\tOro: "+oro+"\nFroza: "+forza+"\tXP': "+xp+"\tLivello: "+livello+"\n";
+        
+        System.out.println(giocatore);
+    }
+    
 }//fine paladino
