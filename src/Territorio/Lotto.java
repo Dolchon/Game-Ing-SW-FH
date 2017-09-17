@@ -188,19 +188,19 @@ public class Lotto {
         if (!pieno)
             contenuto = "Il lotto è vuoto!";
         else if (spada)
-            contenuto = "Il lotto continere una spada!";
+            contenuto = "Il lotto contiene una spada!";
         else if (arco)
             contenuto = "Il lotto contiene un arco!";
         else if (pugnale)
-            contenuto = "Il lotto conetine un pugnale!";
+            contenuto = "Il lotto contiene un pugnale!";
         else if (pozione)
-            contenuto = "Il lotto conetine una Pozione!";
+            contenuto = "Il lotto contiene una Pozione!";
         else if (forzierePieno)
-            contenuto = "Il lotto conetine un forziere!";  
+            contenuto = "Il lotto contiene un forziere!";  
         else if (forziereVuoto)
-            contenuto = "Il lotto conetine un forzierevuoto!";
+            contenuto = "Il lotto contiene un forziere vuoto!";
         else if (orco)
-            contenuto = "Attenzione! Un'Orco!";
+            contenuto = "Attenzione! Un Orco!";
         
         System.out.println(contenuto);
     }

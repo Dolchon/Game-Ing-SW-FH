@@ -61,7 +61,7 @@ public class Paladino extends Giocatore {
         
         String giocatore;
         
-        giocatore = "\nGiocatore: "+ nome +"\tPunti Vita: "+ healthPoint+"\tOro: "+oro+"\nFroza: "+forza+"\tXP: "+xp+"\tLivello: "+livello+"\n";
+        giocatore = "\nGiocatore: "+ nome +"\tPunti Vita: "+ healthPoint+"\tOro: "+oro+"\nForza: "+forza+"\tXP: "+xp+"\tLivello: "+livello+"\n";
         
         System.out.println(giocatore);
     }
