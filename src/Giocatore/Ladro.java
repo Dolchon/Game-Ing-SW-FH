@@ -43,7 +43,8 @@ public class Ladro extends Giocatore {
     
     public int scappa(){
         velocita = velocita - (oro/100);
-        return randomXpercento(25,velocita);
+        //System.out.println(velocita);
+        return randomXpercento(percentualebase,velocita);
     }
      
      public void levelUp(){

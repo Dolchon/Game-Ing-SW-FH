@@ -190,7 +190,7 @@ public class Main {
                     player.combatti();
                     lotto.svuotaLotto();
                 }else{
-                    if(player.scappa() == 2){                            
+                    if(player.scappa() == 0){                            
                         System.out.println(fugaFallita);
                         player.combatti();
                         lotto.svuotaLotto();

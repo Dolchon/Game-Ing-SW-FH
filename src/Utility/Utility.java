@@ -32,7 +32,7 @@ public class Utility {
         
         int[] array = new int[100];
         int percentuale = (int) (base * velocita);
-        
+        //System.out.println(percentuale);
         for (int i=0; i<100; i++){
             if(i<percentuale)
                 array[i] = 1;
