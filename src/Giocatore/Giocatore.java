@@ -59,8 +59,8 @@ public class Giocatore {
         return equipaggiato;
     }
 
-    public void setEquipaggiato(boolean equipaggiato) {
-        this.equipaggiato = equipaggiato;
+    public void setEquipaggiato(boolean cond) {
+        equipaggiato = cond;
     }
     
     //metodo che setta equipaggiamento giocatore seguendo una codifica
