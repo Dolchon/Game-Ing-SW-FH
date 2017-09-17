@@ -28,6 +28,15 @@ public class Lotto {
         private boolean pieno = false;
         private boolean orco = false;
         
+        private static String vuotoMsg = "Il lotto e' vuoto!";
+        private static String spadaMsg = "Il lotto contiene una spada!";
+        private static String pugnaleMsg = "Il lotto contiene un pugnale!";
+        private static String arcoMsg = "Il lotto contiene un'arco!";
+        private static String pozioneMsg = "Il lotto contiene una pozione!";
+        private static String forzierePienoMsg = "Il lotto contiene un forziere!";
+        private static String forziereVuotoMsg = "Il lotto contiene un forziere vuoto!";
+        private static String orcoMsg = "Attenzione un Orco!";
+        
 
 	// Costruttore di Lotto
 	public Lotto(int posX, int posY, boolean citta) {
@@ -77,7 +86,7 @@ public class Lotto {
 		return out;
 		
 	}
-
+        
     public boolean isOrco() {
         return orco;
     }
@@ -186,21 +195,21 @@ public class Lotto {
         String contenuto = "";
         
         if (!pieno)
-            contenuto = "Il lotto è vuoto!";
+            contenuto = vuotoMsg;
         else if (spada)
-            contenuto = "Il lotto contiene una spada!";
+            contenuto = spadaMsg;
         else if (arco)
-            contenuto = "Il lotto contiene un arco!";
+            contenuto = arcoMsg;
         else if (pugnale)
-            contenuto = "Il lotto contiene un pugnale!";
+            contenuto = pugnaleMsg;
         else if (pozione)
-            contenuto = "Il lotto contiene una Pozione!";
+            contenuto = pozioneMsg;
         else if (forzierePieno)
-            contenuto = "Il lotto contiene un forziere!";  
+            contenuto = forzierePienoMsg;  
         else if (forziereVuoto)
-            contenuto = "Il lotto contiene un forziere vuoto!";
+            contenuto = forziereVuotoMsg;
         else if (orco)
-            contenuto = "Attenzione! Un Orco!";
+            contenuto = orcoMsg;
         
         System.out.println(contenuto);
     }

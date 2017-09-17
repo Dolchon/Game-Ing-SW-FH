@@ -24,7 +24,8 @@ public class Main {
     private static String fugaFallita = "\nSpiacente non sei riuscito a scappare!";
     private static String fugaRiuscita = "\nSei riuscito a scappare!";
     private static String percentuale = "Aspetta!\nDimmi che percentuale di fuga vuoi utilizzare!";
-    
+    private static String morte = "I Tuoi hp sono a zero!\nLatua avventura termina qui!";
+    private static String messaggiodiscelta = "Scegli la tua Classe!";
     
     private static char opzione;
     private static String nome;
@@ -81,6 +82,8 @@ public class Main {
                         
                         if(player.getHealthPoint() > 0)
                             Menu.menu();
+                        else
+                            System.out.println(morte);
                     }
                     if(player.getHealthPoint() > 0)
                         player.settaPosizione(scelta = IO.leggiCarattere());
@@ -96,14 +99,13 @@ public class Main {
             Menu.sceltaClasse(nome);
             char op;
             do{
-                System.out.println("Scegli");
+                System.out.println(messaggiodiscelta);
                 op = IO.leggiCarattere();
             }while(op != 'P' && op != 'L' && op != 'B');
             
             Giocatore player;
             switch (op){
                 case 'P':
-                    System.out.println("ciao sono qua");
                     player = new Paladino(5,5,nome);
                     return player;
                     
@@ -156,7 +158,7 @@ public class Main {
                 }while(opzione != 'S' && opzione != 'N');
 
                 if(opzione == 'S'){
-                    player.setHealthPoint(10);
+                    player.beviPozione();
                     lotto.svuotaLotto();
                 }
             }

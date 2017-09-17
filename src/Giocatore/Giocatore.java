@@ -144,7 +144,13 @@ public class Giocatore {
         this.pugnale = pugnale;
     }
         
-        
+    public void beviPozione(){
+        healthPoint += 10;
+    }
+    
+    public void beviVeleno(){
+        healthPoint -= 10;
+    }
 
     public void settaPosizione(char c){
 
@@ -203,7 +209,7 @@ public class Giocatore {
                 break;
             case 4:
                 System.out.println(veleno);
-                healthPoint -= 10;
+                beviVeleno();
                 break;
         }
     }

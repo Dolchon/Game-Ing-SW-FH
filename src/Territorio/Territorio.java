@@ -155,7 +155,7 @@ public class Territorio {
         
         //DX
         if(xGiocatore >= (altezza - 5)){
-            System.out.println("Sono entrato nell'IF del DX");
+            //System.out.println("Sono entrato nell'IF del DX");
             for(int i = minY; i < larghezza; i++){
                 creaLotto(xGiocatore + 5,i);
                 // Lotto quadrato = new Lotto(xGiocatore + 5, i, false);
