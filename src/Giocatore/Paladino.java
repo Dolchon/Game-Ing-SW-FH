@@ -21,7 +21,7 @@ public class Paladino extends Giocatore {
     public Paladino(int _posX, int _posY, String _nome) {
         super(_posX, _posY, _nome);
         this.forza = 1;
-        this.velocita = (float) 0.5;
+        this.velocita = (float) 1;
         this.livello = 1;
     }
     
@@ -64,6 +64,30 @@ public class Paladino extends Giocatore {
         giocatore = "\nPaladino: "+ nome +"\tPunti Vita: "+ healthPoint+"\tOro: "+oro+"\nForza: "+forza+"\tXP: "+xp+"\tLivello: "+livello+"\n";
         
         System.out.println(giocatore);
+    }
+     
+     public float getForza() {
+        return forza;
+    }
+
+    public void setForza(float forza) {
+        this.forza = forza;
+    }
+
+    public float getVelocita() {
+        return velocita;
+    }
+
+    public void setVelocita(float velocita) {
+        this.velocita = velocita;
+    }
+
+    public int getLivello() {
+        return livello;
+    }
+
+    public void setLivello(int livello) {
+        this.livello = livello;
     }
     
 }

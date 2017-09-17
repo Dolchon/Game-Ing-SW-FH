@@ -83,4 +83,29 @@ public class GiocatoreTest {
         assertEquals(expResult4, player4.getHealthPoint());
     }
     
+    @Test
+    /**
+     * Test che controlla il funzionamento del metodo bevi pozione +10HP 
+    */
+     public void testPozione(){
+         Giocatore player = new Giocatore(1,1,"aaa");
+         
+         int expResult = 110;
+         player.beviPozione();
+         
+         assertEquals(expResult,player.getHealthPoint());
+     }
+     
+     @Test
+    /**
+     * Test che controlla il funzionamento del metodo bevi veleno -10HP 
+    */
+     public void testVeleno(){
+         Giocatore player = new Giocatore(1,1,"aaa");
+         
+         int expResult = 90;
+         player.beviVeleno();
+         
+         assertEquals(expResult,player.getHealthPoint());
+     }
 }
