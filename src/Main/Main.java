@@ -24,7 +24,7 @@ public class Main {
     private static String fugaFallita = "\nSpiacente non sei riuscito a scappare!";
     private static String fugaRiuscita = "\nSei riuscito a scappare!";
     private static String percentuale = "Aspetta!\nDimmi che percentuale di fuga vuoi utilizzare!";
-    private static String morte = "I Tuoi hp sono a zero!\nLatua avventura termina qui!";
+    private static String morte = "I Tuoi hp sono a zero!\nLa tua avventura termina qui!";
     private static String messaggiodiscelta = "Scegli la tua Classe!";
     
     private static char opzione;
@@ -80,10 +80,11 @@ public class Main {
                         //giocatore trova orco
                         trovaOrco(lotto, player);
                         
-                        if(player.getHealthPoint() > 0)
+                        if(player.isVivo())
                             Menu.menu();
                         else
                             System.out.println(morte);
+                        
                     }
                     if(player.getHealthPoint() > 0)
                         player.settaPosizione(scelta = IO.leggiCarattere());

@@ -25,10 +25,15 @@ public class GiocatoreTest {
     public void testIsEquipaggiato() {
         
         Giocatore player = new Giocatore(1,1,"aaa");
+        Giocatore player1 = new Giocatore(1,1,"aaa");
         player.setEquipaggiato(true);
+        player1.setEquipaggiato(false);
         boolean expResult = true;
+        boolean expResult1 = false;
         boolean result = player.isEquipaggiato();
+        boolean result1 = player1.isEquipaggiato();
         assertEquals(expResult, result);
+        assertEquals(expResult1, result1);
     }
     
     /**

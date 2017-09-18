@@ -247,5 +247,10 @@ public class Giocatore {
         this.xp = xp;
     }
     
-    
+    public boolean isVivo(){
+        if(healthPoint > 0)
+            return true;
+        else
+            return false;
+    }
 }
