@@ -210,10 +210,9 @@ public class Main {
         
         private static void setPercentuale(Giocatore player){
             System.out.println(percentuale);
-            int percentualeInt;
-            do{
-                percentualeInt = IO.leggiNumero();
-            }while(percentualeInt <0 && percentualeInt >100);
-            player.setPercentualebase(percentualeInt);
+            int x;
+            x = IO.leggiNumero();
+
+            player.setPercentualebase(x);
         }
 }

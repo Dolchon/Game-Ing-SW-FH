@@ -101,11 +101,18 @@ public class IO
 	}
 	
         public static int leggiNumero(){
+            int n;
+            int c = 0;
+            do{
+                if(c > 0){
+                    System.out.println("Attenzione inserisci un valore compreso tra 0 e 100");
+                }
+		String carattere = leggiParola();
 		
-		String carattere = leggiParola().toUpperCase();
-		
-                int n = Integer.parseInt(carattere);
-		return n;
+                n = Integer.parseInt(carattere);
+                c++;
+            }while(n < 0 || n > 100);
+            return n;
 	}
         
         /**
